@@ -3,7 +3,7 @@ html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: url('../images/grogu.webp') no-repeat center center fixed;
+    background: url('../public/grogu.webp') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -14,16 +14,16 @@ html {
     justify-content: center;
     height: 100%;
     color: #fff;
-}
 
-.board {
-    display: flex;
+    &_board{
+        display: flex;
     justify-content: center;
     padding: 20px;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     margin-bottom: 30px;
+    }
 }
 
 .cell {
