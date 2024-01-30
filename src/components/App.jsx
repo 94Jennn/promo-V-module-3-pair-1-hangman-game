@@ -1,6 +1,44 @@
+import { useState } from 'react';
 import '../scss/App.scss';
 
 function App() {
+
+  const [cookies, setCookies] = useState(['🍪', '🍪', '🍪' ]);
+
+  const [pies, setPies] = useState(0);
+
+  function getRandomNumber(max) {
+    return Math.ceil(Math.random() * max);
+  }
+
+  const rollDice = (event) => {
+    const numberRandom = getRandomNumber(4);
+    console.log(numberRandom);
+
+    if(numberRandom === 4){
+      setPies(pies + 1);
+
+    } else if (numberRandom === 1){ 
+      setCookies
+      
+
+    } 
+
+    // return (
+    //   <div>
+    //     <p>{mensaje}</p>
+    //   </div>
+    // );
+
+  }
+
+
+
+
+
+
+
+
   return (
     <div className="page">
     <header>
@@ -19,7 +57,7 @@ function App() {
       </section>
 
       <section>
-        <button className="dice">Lanzar Dado</button>
+        <button className="dice" onClick={rollDice} >Lanzar Dado</button>
         <div className="game-status">En curso</div>
       </section>
 
