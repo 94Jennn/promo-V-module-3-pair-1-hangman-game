@@ -4,39 +4,34 @@ import '../scss/App.scss';
 function App() {
 
   const [cookies, setCookies] = useState(['🍪', '🍪', '🍪' ]);
-
+  const [eggs, setEggs] = useState(['🥚', '🥚', '🥚' ]);
+  const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸' ]);
   const [pies, setPies] = useState(0);
+  const [gameStatus,setGameStatus] =useState ("");
 
   function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
   }
 
-  const rollDice = (event) => {
+  const rollDice = () => {
     const numberRandom = getRandomNumber(4);
     console.log(numberRandom);
 
     if(numberRandom === 4){
       setPies(pies + 1);
-
-    } else if (numberRandom === 1){ 
-      setCookies
-      
-
-    } 
-
-    // return (
-    //   <div>
-    //     <p>{mensaje}</p>
-    //   </div>
-    // );
-
+      setGameStatus('Groku avanza una casilla');
+      console.log(pies)
+    } else if (numberRandom === 1 && cookies.length>0){ 
+      setCookies (cookies.splice(0,1));
+      console.log(cookies)
+    }  else if (numberRandom === 2 && eggs.length>0){
+      setEggs (eggs.splice(0,1));
+      console.log(eggs);
+    } else if (numberRandom === 3 && frogs.length>0){
+        setFrogs (frogs.splice(0,1));
+        console.log(frogs);
+    }
   }
-
-
-
-
-
-
 
 
   return (
@@ -58,7 +53,7 @@ function App() {
 
       <section>
         <button className="dice" onClick={rollDice} >Lanzar Dado</button>
-        <div className="game-status">En curso</div>
+        <div className={gameStatus}>En curso</div>
       </section>
 
       <section className="goods-container">
@@ -83,6 +78,8 @@ function App() {
  
     </div>
   );
-}
+} 
+
+
 
 export default App;
