@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import '../scss/App.scss';
+import Board from './Board';
+import Main from './Main';
+import Header from './Header';
+import Dice from './Dice';
 
 function App() {
 
@@ -12,7 +16,7 @@ function App() {
   function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
   }
-
+ //Hay que mirar esta función:
   const rollDice = () => {
     const numberRandom = getRandomNumber(4);
     console.log(numberRandom);
@@ -22,13 +26,13 @@ function App() {
       setGameStatus('Groku avanza una casilla');
       console.log(pies)
     } else if (numberRandom === 1 && cookies.length>0){ 
-      setCookies (cookies.splice(0,1));
+      setCookies (cookies.slice(1));
       console.log(cookies)
     }  else if (numberRandom === 2 && eggs.length>0){
-      setEggs (eggs.splice(0,1));
+      setEggs (eggs.slice(1));
       console.log(eggs);
     } else if (numberRandom === 3 && frogs.length>0){
-        setFrogs (frogs.splice(0,1));
+        setFrogs (frogs.slice(1));
         console.log(frogs);
     }
   }
@@ -36,23 +40,11 @@ function App() {
 
   return (
     <div className="page">
-    <header>
-      <h1>¡Cuidado con Grogu!</h1>
-    </header>
 
-    <main className="page">
-      <section className="page_board">
-        <div className="cell"><div className="grogu">👣</div></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-      </section>
-
+    <Header/>
+    <Main/>
+    <Dice/>
       <section>
-        <button className="dice" onClick={rollDice} >Lanzar Dado</button>
         <div className={gameStatus}>En curso</div>
       </section>
 
@@ -74,7 +66,7 @@ function App() {
       <section>
         <button className="restart-button">Reiniciar Juego</button>
       </section>
-    </main>
+
  
     </div>
   );
