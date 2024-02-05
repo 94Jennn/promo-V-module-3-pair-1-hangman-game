@@ -1,10 +1,10 @@
 import Board from "./Board";
 import Dice from "./Dice";
 
-const Main = (props) => {
+const Main = ({rollDice}) => {
     return <main className="page">
         <Board/>
-        <Dice/>
+        <Dice rollDice = {rollDice}/>
     </main>
 }
 

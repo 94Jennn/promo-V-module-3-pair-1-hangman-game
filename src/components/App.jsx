@@ -4,6 +4,7 @@ import Board from './Board';
 import Main from './Main';
 import Header from './Header';
 import Dice from './Dice';
+import GameStatus from './GameStatus';
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
 
     if(numberRandom === 4){
       setPies(pies + 1);
-      setGameStatus('Groku avanza una casilla');
+      setGameStatus(pies);
       console.log(pies)
     } else if (numberRandom === 1 && cookies.length>0){ 
       setCookies (cookies.slice(1));
@@ -42,12 +43,8 @@ function App() {
     <div className="page">
 
     <Header/>
-    <Main/>
-    <Dice/>
-      <section>
-        <div className={gameStatus}>En curso</div>
-      </section>
-
+    <Main rollDice = {rollDice}/>
+    <GameStatus status = {setGameStatus}/>
       <section className="goods-container">
         <div className="goods-item">🍪</div>
         <div className="goods-item">🍪</div>
