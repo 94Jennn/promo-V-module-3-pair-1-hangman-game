@@ -12,7 +12,16 @@ function App() {
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚' ]);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸' ]);
   const [pies, setPies] = useState(0);
-  const [gameStatus,setGameStatus] =useState ("");
+  const [gameStatus,setGameStatus] =useState ("En curso");
+  const [board, setBoard] = useState ([]);
+
+
+  // setBoard= (board.fill(null,0,7));
+  // console.log (board)
+  // console.log(cookies)
+  // console.log(eggs)
+  // console.log(frogs)
+
 
   function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
@@ -24,17 +33,23 @@ function App() {
 
     if(numberRandom === 4){
       setPies(pies + 1);
-      setGameStatus(pies);
+      setGameStatus("Groku avanza una casilla");
       console.log(pies)
     } else if (numberRandom === 1 && cookies.length>0){ 
       setCookies (cookies.slice(1));
       console.log(cookies)
+      setGameStatus("Groku se come un cookie");
+      
     }  else if (numberRandom === 2 && eggs.length>0){
       setEggs (eggs.slice(1));
-      console.log(eggs);
+      console.log(eggs)
+      setGameStatus("Groku se come un huevo");
+     
     } else if (numberRandom === 3 && frogs.length>0){
         setFrogs (frogs.slice(1));
-        console.log(frogs);
+        console.log(frogs)
+        setGameStatus("Groku se come una rana");
+        
     }
   }
 
@@ -44,7 +59,7 @@ function App() {
 
     <Header/>
     <Main rollDice = {rollDice}/>
-    <GameStatus status = {setGameStatus}/>
+    <GameStatus status = {gameStatus}/>
       <section className="goods-container">
         <div className="goods-item">🍪</div>
         <div className="goods-item">🍪</div>
