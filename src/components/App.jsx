@@ -16,11 +16,9 @@ function App() {
   const [board, setBoard] = useState ([]);
 
 
-  // setBoard= (board.fill(null,0,7));
-  // console.log (board)
-  // console.log(cookies)
-  // console.log(eggs)
-  // console.log(frogs)
+  //setBoard (board.fill(null,0,7));
+  console.log (board)
+  
 
 
   function getRandomNumber(max) {
