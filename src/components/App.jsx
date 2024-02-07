@@ -13,11 +13,11 @@ function App() {
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸' ]);
   const [pies, setPies] = useState(0);
   const [gameStatus,setGameStatus] =useState ("En curso");
-  const [board, setBoard] = useState ([]);
+  //const [board, setBoard] = useState (null);
 
 
-  //setBoard (board.fill(null,0,7));
-  console.log (board)
+  //setBoard (board.fill(null));
+  
   
 
 
